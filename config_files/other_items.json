@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Phone",
+    "price": 100,
+    "quantity": 1
+  },
+  {
+    "name": "Laptop",
+    "price": 1000,
+    "quantity": 3
+  },
+  {
+    "name": "Cable",
+    "price": 10,
+    "quantity": 5
+  },
+  {
+    "name": "Mouse",
+    "price": 50,
+    "quantity": 5
+  },
+  {
+    "name": "Keyboard",
+    "price": 74.9,
+    "quantity": 55
+  }
+]
