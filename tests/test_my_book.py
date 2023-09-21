@@ -17,13 +17,7 @@ class TestMyBook(unittest.TestCase):
         print("Running tearDown method...")
         del self.book_1
         del self.book_2
-
     
-    @classmethod
-    def tearDownClass(cls):
-    	print("\ntearDownClass method: Runs after all tests...")
-    
-
     def test_get_reading_time(self):
         print("Running test_get_reading_time...")
         expected_value1 = 304*1.5
@@ -31,13 +25,23 @@ class TestMyBook(unittest.TestCase):
         expected_value2 = 447*1.5
         self.assertEqual(self.book_2.get_reading_time(), f'Estimated reading time: {expected_value2} minutes')
 
+    def test_apply_selectable_discount(self):
+        print("Running test_apply_selectable_discount...")
+        expected_value1 = 13.6
+        self.assertEqual(self.book_2.apply_selectable_discount(), f'Book new price: {expected_value1} after applied selectable discount of: {0.15}')
+    
     def test_apply_fixed_discount(self):
         print("Running test_apply_fixed_discount...")
-        expected_value1 = 15-(15*(10/100))
-        self.assertEqual(self.book_1.apply_fixed_discount(), f'Book new price: {expected_value1} after applied fixed discount of: {10/100}')
-        expected_value2 = 16-(16*(15/100))
-        self.assertEqual(self.book_2.apply_selectable_discount(), f'Book new price: {expected_value2} after applied selectable discount of: {0.15}')
+        expected_value1 = 13.5
+        self.assertEqual(self.book_1.apply_fixed_discount(), f'Book new price: {expected_value1} after applied fixed discount of: {0.1}')
+        expected_value2 = 14.4
+        self.assertEqual(self.book_2.apply_fixed_discount(), f'Book new price: {expected_value2} after applied fixed discount of: {0.1}')
         
+    
+    @classmethod
+    def tearDownClass(cls):
+    	print("\ntearDownClass method: Runs after all tests...")
 
 if __name__=='__main__':
-	unittest.main()
+            unittest.main()
+            

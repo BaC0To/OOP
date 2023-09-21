@@ -1,5 +1,4 @@
 
-
 class Book:
 
     pay_rate = 10/100
