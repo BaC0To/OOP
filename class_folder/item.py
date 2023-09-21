@@ -9,7 +9,6 @@ JSON_FILENAME = 'other_items.json'
 
 
 
-
 class Item:
     
     #class atrbutes
@@ -25,12 +24,26 @@ class Item:
        
        #dynamically assign an unique atrribute to an instance
        self.__name = name
-       self.price = price
+       self.__price = price
        self.quantity = quantity
 
        #actions to execute
        Item.all.append(self)
 
+
+    @property
+    # Property Decorator = Read-only Attribute
+    def price(self):
+       return self.__price
+    
+    def apply_discout(self):
+        #method that ovverides the price attribute
+        self.__price = self.__price * self.pay_rate
+    
+    #encapsulation, no direct mod on price but only over method
+
+    def apply_increment(self, increment_value):
+       self.__price = self.__price + self.__price * increment_value
 
     @property
     # Property Decorator = Read-only Attribute
@@ -45,12 +58,8 @@ class Item:
           self.__name = value
 
     def calculate_total_price(self):
-      return self.quantity * self.price
+      return self.quantity * self.__price
       
-
-    def apply_discout(self):
-       #method that ovverides the price attribute
-       self.price = self.price * self.pay_rate
 
     
     @classmethod
@@ -92,9 +101,5 @@ class Item:
 
      # MagicMethon representing my objects 
     def __repr__(self):
-       return f"{self.__class__.__name__}('{self.name}', {self.price}, {self.quantity})"
+       return f"{self.__class__.__name__}('{self.name}', {self.__price}, {self.quantity})"
     
-    #read-only attribute
-    #@property
-    #def read_only_name(self):
-     #  return "AAA"
