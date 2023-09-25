@@ -22,7 +22,7 @@ class Book:
         return f'Book new price: {price_with_fixed_dscount} after applied fixed discount of: {self.pay_rate}'
     
     def apply_selectable_discount(self):
-    #method that ovverides the price attribute
+        #method that ovverides the price attribute
         self.__price = self.__price - (self.__price * self.discount)
         price_with_selectable_dscount = self.__price
         return f'Book new price: {price_with_selectable_dscount} after applied selectable discount of: {self.discount}'
@@ -34,3 +34,5 @@ class Book:
     # MagicMethon representing my objects 
     def __repr__(self):
        return f"{self.__class__.__name__}('{self.title}', {self.author}, {self.pages}, {self.__price}, {self.discount})"
+
+

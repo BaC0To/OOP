@@ -74,6 +74,7 @@ class Item:
               quantity = int(item.get('quantity'))
            )
     
+
     @classmethod
     def instantiate_from_json(cls):
        with open(Path(os.path.join(os.getcwd(), 'config_files',JSON_FILENAME)), 'r') as f:
@@ -89,6 +90,8 @@ class Item:
                 price = item.get('price'),
                 quantity = item.get('quantity')
              )
+
+
     @staticmethod
     def is_integer(num):
        if isinstance(num, float):
